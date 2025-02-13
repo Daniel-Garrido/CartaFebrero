@@ -1,4 +1,5 @@
 # CartaFebrero
+<<<<<<< HEAD
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -27,3 +28,6 @@ npm run dev
 ```sh
 npm run build
 ```
+=======
+Carta para dedicar el dia de san valentin
+>>>>>>> 962345658fea8255bc28677d48c7fed71bbfa463
