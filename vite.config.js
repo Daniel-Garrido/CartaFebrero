@@ -10,6 +10,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+  base:'https://Daniel-Garrido.github.io/CartaFebrero/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

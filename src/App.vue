@@ -38,6 +38,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleClick);
 });
+
 </script>
 
 <template>
