@@ -1,4 +1,7 @@
 <script setup>
+//importar las imagenes 
+import imagen from '@/assets/imagenes/IMG1.jpg';
+
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const envoltura = ref(null);
@@ -45,6 +48,7 @@ onBeforeUnmount(() => {
 
   <div id="app">
     <section>
+
       <h1>¡Abre la carta UwU! ❤️</h1>
       <div class="contenedor">
         <div class="envoltura-sobre" ref="envoltura">
@@ -54,9 +58,10 @@ onBeforeUnmount(() => {
                 <p>
                   Hola mi amor, sabes siempre te he querido hacerte cosas relacionadas a mi carrera,
                   pero no he tenido el tiempo de hacerlo hasta ahora. Feliz 14 de febrero mi amor,
-                  espero que te guste este pequeño detalle, sabes que te amo mucho preciosa.
+                  espero que te guste este pequeño detalle, sabes que te amo mucho preciosa. Espero que te guste tu
+                  regalo mi amor uwu
                 </p>
-                <img src="" alt="">
+                <img class="img" :src="imagen" alt="Imagen" />
               </div>
             </div>
           </div>
@@ -70,197 +75,219 @@ onBeforeUnmount(() => {
 </template>
 
 <style>
-
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --primario: #fff;
-    --fondo: #ffebf2;
-    --fondo-sobre: #ffe3ed;
-    --solapa-sobre: #ffccd5;
-    --cuerpo-sobre: #ffc1d1;
-    --sombra: rgba(0, 0, 0, 0.2);
-    --texto: #003049;
-    --corazon: #ff477e;
+  --primario: #fff;
+  --fondo-sobre: #ffe3ed;
+  --solapa-sobre: #ffccd5;
+  --cuerpo-sobre: #ffc1d1;
+  --sombra: rgba(0, 0, 0, 0.2);
+  --texto: #003049;
+  --corazon: #ff477e;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 40px;
+}
+
+.img {
+
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
 .contenedor {
-    width: 100%;
+  width: 100%;
 }
 
 .envoltura-sobre {
-    position: relative;
-    background-color: var(--fondo-sobre);
-    box-shadow: 0 0 40px var(--sombra);
+  position: relative;
+  background-color: var(--fondo-sobre);
+  box-shadow: 0 0 40px var(--sombra);
 }
 
 .sobre {
-    position: relative;
-    width: 400px;
-    height: 300px;
+  position: relative;
+  width: 400px;
+  height: 300px;
 }
 
 .sobre::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 4;
-    border-top: 180px solid var(--solapa-sobre);
-    border-right: 200px solid transparent;
-    border-left: 200px solid transparent;
-    transform-origin: top;
-    transition: all 0.5s ease-in-out 0.5s;
-    border-radius: 10px;
-
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  border-top: 180px solid var(--solapa-sobre);
+  border-right: 200px solid transparent;
+  border-left: 200px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.5s;
+  border-radius: 10px;
 }
 
 /* parte del sobre del lado derecho */
 .solapa-derecha {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(100% 0, 0 100%, 100% 100%);
-    background-color: var(--cuerpo-sobre);
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  background-color: var(--cuerpo-sobre);
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 /* parte del sobre del lado izquierdo */
 .solapa-izquierda {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(0 0, 0 100%, 100% 100%);
-    background-color: var(--cuerpo-sobre);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  background-color: var(--cuerpo-sobre);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 
 }
 
 .carta {
-    position: absolute;
-    bottom: 0;
+  position: absolute;
+  bottom: 0;
 
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    background-color: var(--primario);
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
+  background-color: var(--primario);
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 /*estilo a todo el contenido de la carte */
 .contenido {
-    text-align: left;
-    font-size: 16px;
-    padding: 10px;
-    line-height: 20px;
-    cursor: pointer;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-direction: column;
+  font-size: 16px;
+  padding: 10px;
+  line-height: 20px;
+  cursor: pointer;
 }
 
 /* estilo del corazón de la carta */
 .corazon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 30px;
-    height: 30px;
-    background-color: var(--corazon);
-    transform: translate(-50%,0) rotate(45deg);
-    transition: transform 0.5s ease-in-out 1s;
-    z-index: 999;
-    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: var(--corazon);
+  transform: translate(-50%, 0) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  z-index: 999;
+  cursor: pointer;
 }
 
 .corazon::before,
 .corazon::after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: var(--corazon);
-    border-radius: 100%;
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: var(--corazon);
+  border-radius: 100%;
 }
 
 .corazon:before {
-    top: -15px;
+  top: -15px;
 }
 
 .corazon:after {
-    right: 15px;
+  right: 15px;
 }
 
 /* Clases dinámicas */
 .abierto .sobre::before {
-    transform: rotateX(180deg);
-    z-index: 0;
+  transform: rotateX(180deg);
+  z-index: 0;
 }
 
 .abierto .corazon {
-    transform: rotate(90deg);
-    transition-delay: 0.4s;
+  transform: rotate(90deg);
+  transition-delay: 0.2s;
 }
 
 .carta.mostrar-carta {
-    transform: translateY(-290px);
-    transition: transform .5s ease-in-out;
+  transform: translateY(-290px);
+  transition: transform .5s ease-in-out;
 }
 
 .carta.cerrando-carta {
-    transform: translateY(-290px);
-    transition: transform .5s ease-in-out;
+  transform: translateY(-290px);
+  transition: transform .3s ease-in-out;
 }
 
 .carta.abierta {
-    z-index: 10000;
+  z-index: 10000;
 }
 
 .envoltura-sobre.desactivar-sobre .sobre::before {
-    pointer-events: none;
+  pointer-events: none;
 }
 
-
+/* media query */
 @media screen and (max-width:400px) {
-    .contenedor {
-        width: 300px;
-    }
-    .sobre {
-        width: 300px;
-        height: 250px;
-    }
+  .contenedor {
+    margin: auto;
+    width: 300px;
+  }
 
-    .sobre::before {
-        border-top:150px solid var(--solapa-sobre) ;
-        border-right: 150px solid transparent;
-        border-left: 150px solid transparent;
-    }
+  .contenido {
+    padding: 5px;
+    gap: 20px;
+  }
+
+  .img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+  }
+
+  .sobre {
+    width: 300px;
+    height: 400px;
+  }
+
+  .sobre::before {
+    border-top: 200px solid var(--solapa-sobre);
+    border-right: 150px solid transparent;
+    border-left: 150px solid transparent;
+  }
 }
 </style>
